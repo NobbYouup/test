@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><script type="text/javascript" src="jquery-2.1.4.min.js"></script></head>
+
+<body>
+<input  maxlength="9" class="ingresonum" id="add_nums" placeholder="INGRESE NUMEROS"/> <span class="agregar"><input type="button" value="agregar" /></span>
+
+<div id="nums_aadidos">
+</div>
+        <script>    
+      
+$('body').on('keyup',"#add_nums", function(event){
+  if(event.keyCode == 13){
+   var cont=$("#add_nums").val();
+  alert(cont)
+    if(cont<'5'){
+	for(var i=0;i<cont;i++){
+	alert(i)
+	 $("#nums_aadidos").append('<div id="numero'+i+'" class="numeros numero'+i+'"> <div class="icon icon-30"></div>'+i+'<input type="hidden" value="'+i+'" name="num_individual[]" id="n_individual"/> <button value="numero'+i+'" class="close_num">x</button></div>');
+	}
+	  }else{
+	  alert("a")
+    }
+	console.log("cont="+cont);
+  }
+});
+
+
+$('body').on('click',".close_num", function(){
+   var numid=this.value;
+   console.log("eliminado= "+numid);
+   $("#"+numid).remove();
+   cont--;
+});
+    </script>
+</body>
+</html>
